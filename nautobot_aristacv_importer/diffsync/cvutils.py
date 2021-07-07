@@ -6,11 +6,8 @@ import grpc
 import arista.inventory.v1 as inv
 import arista.tag.v1 as tag
 from google.protobuf import wrappers_pb2 as wrappers
-from django.conf import settings
 
 RPC_TIMEOUT = 30
-
-PLUGIN_SETTINGS = settings.PLUGINS_CONFIG["nautobot_ssot_aristacv"]
 
 _channel = None
 
