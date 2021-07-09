@@ -20,15 +20,10 @@ class Settings(BaseSettings):  # pylint: disable=too-few-public-methods
     The type of each setting is defined using Python annotations and Pydantic field types
     and is validated when a config file is loaded with Pydantic.
     """
+    cvaas_token: str
+    nautobot_url: str
+    nautobot_token: str
 
-    string_required: str
-    secret_optional: Optional[SecretStr]  # pylint: disable=unsubscriptable-object
-    array_default: List[str] = list()
-    url_default: AnyHttpUrl = "http://localhost"
-    ip_address: IPvAnyAddress = "192.168.0.1"
-    ip_network: IPvAnyNetwork = "2001:db8:3c4d:15::/64"
-    file: FilePath = "some/path/file.txt"
-    directory: DirectoryPath = "tests/"
 
     class Config:  # pylint: disable=too-few-public-methods
         """Config class to be used for Settings."""

@@ -12,17 +12,17 @@ RPC_TIMEOUT = 30
 _channel = None
 
 
-def connect():
+def connect_cv(settings):
     """Connect shared gRPC channel to the configured CloudVision instance."""
     global _channel
 
-    cvp_host = PLUGIN_SETTINGS["cvp_host"]
+    cvp_host = settings.get("cvp_host")
     # If CVP_HOST is defined, we assume an on-prem installation.
     if cvp_host:
         cvp_url = f"{cvp_host}:8443"
-        insecure = PLUGIN_SETTINGS["insecure"]
-        username = PLUGIN_SETTINGS["cvp_user"]
-        password = PLUGIN_SETTINGS["cvp_password"]
+        insecure = settings.get("insecure")
+        username = settings.get("cvp_user")
+        password = settings.get("cvp_password")
         # If insecure, the cert will be downloaded from the server and automatically trusted for gRPC.
         if insecure:
             cert = bytes(ssl.get_server_certificate((cvp_host, 8443)), "utf-8")
@@ -38,13 +38,13 @@ def connect():
     # Set up credentials for CVaaS using supplied token.
     else:
         cvp_url = "www.arista.io:443"
-        call_creds = grpc.access_token_call_credentials(PLUGIN_SETTINGS["cvp_token"])
+        call_creds = grpc.access_token_call_credentials(settings.get("cvaas_token"))
         channel_creds = grpc.ssl_channel_credentials()
     conn_creds = grpc.composite_channel_credentials(channel_creds, call_creds)
     _channel = grpc.secure_channel(cvp_url, conn_creds)
 
 
-def disconnect():
+def disconnect_cv():
     """Close the shared gRPC channel."""
     global _channel
     _channel.close()
