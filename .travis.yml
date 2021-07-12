@@ -28,6 +28,8 @@ jobs:
         - "INVOKE_LOCAL=True"
       before_script:
         - "pip install invoke toml"
+        - "pip install black"
+        - "pip install bandit"
       script:
         - "invoke black"
         - "invoke bandit"  # Bandit fails to function on > Py3.8 https://github.com/PyCQA/bandit/issues/639
