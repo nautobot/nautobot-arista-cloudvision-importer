@@ -2,12 +2,9 @@
 # pylint: disable=no-name-in-module
 import sys
 from pathlib import Path
-from typing import List, Optional
 
 import toml
 from pydantic import BaseSettings
-from pydantic.networks import AnyHttpUrl, IPvAnyAddress, IPvAnyNetwork
-from pydantic.types import DirectoryPath, FilePath, SecretStr
 from pydantic.error_wrappers import ValidationError
 
 SETTINGS = None
@@ -20,10 +17,10 @@ class Settings(BaseSettings):  # pylint: disable=too-few-public-methods
     The type of each setting is defined using Python annotations and Pydantic field types
     and is validated when a config file is loaded with Pydantic.
     """
+
     cvaas_token: str
     nautobot_url: str
     nautobot_token: str
-
 
     class Config:  # pylint: disable=too-few-public-methods
         """Config class to be used for Settings."""

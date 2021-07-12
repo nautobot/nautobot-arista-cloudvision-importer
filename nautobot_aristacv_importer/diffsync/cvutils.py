@@ -9,6 +9,7 @@ from google.protobuf import wrappers_pb2 as wrappers
 
 RPC_TIMEOUT = 30
 
+# pylint: disable=C0103,W0603,E1101
 _channel = None
 
 
@@ -28,7 +29,7 @@ def connect_cv(settings):
             cert = bytes(ssl.get_server_certificate((cvp_host, 8443)), "utf-8")
             channel_creds = grpc.ssl_channel_credentials(cert)
             response = requests.post(
-                f"https://{cvp_host}/cvpservice/login/authenticate.do", auth=(username, password), verify=False
+                f"https://{cvp_host}/cvpservice/login/authenticate.do", auth=(username, password), verify=False  # nosec
             )
         # Otherwise, the server is expected to have a valid certificate signed by a well-known CA.
         else:

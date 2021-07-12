@@ -1,9 +1,7 @@
 """DiffSync adapter for Arista CloudVision."""
 from diffsync import DiffSync
-
-import nautobot_aristacv_importer.diffsync.cvutils as cvutils
-
-from .models import UserTag
+import nautobot_aristacv_importer.diffsync.cvutils as cvutils  # pylint: disable=R0402
+from .models import UserTag  # pylint: disable=E0402
 
 
 class CloudVision(DiffSync):
