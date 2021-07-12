@@ -34,7 +34,7 @@ jobs:
         - "pip install flake8"
         - "pip install yamllint"
         - "pip install pylint"
-        - "pip install pydantic diffsync requests grpc pynautobot protobuf cloudvision"
+        - "pip install pydantic diffsync requests grpcio pynautobot protobuf cloudvision"
       script:
         - "invoke black"
         - "invoke bandit"  # Bandit fails to function on > Py3.8 https://github.com/PyCQA/bandit/issues/639
