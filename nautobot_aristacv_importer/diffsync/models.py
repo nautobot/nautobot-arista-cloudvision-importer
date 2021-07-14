@@ -23,7 +23,8 @@ class UserTag(DiffSyncModel):
         nbutils.create_tag(tag_name, tag_slug)
         for device in attrs["devices"]:
             nb_device = nbutils.get_device(device)
-            nbutils.assign_tag(nb_device, tag_slug)
+            if nb_device:
+                nbutils.assign_tag(nb_device, tag_slug)
         return super().create(ids=ids, diffsync=diffsync, attrs=attrs)
 
     def update(self, attrs):
@@ -32,8 +33,10 @@ class UserTag(DiffSyncModel):
         add = set(attrs["devices"]) - set(self.devices)
         tag_slug = f"arista_{self.name}_{self.value}"
         for device in remove:
+            nb_device = nbutils.get_device(device)
             nbutils.remove_tag(device, tag_slug)
         for device in add:
+            nb_device = nbutils.get_device(device)
             nbutils.assign_tag(device, tag_slug)
         return super().update(attrs)
 
