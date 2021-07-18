@@ -9,26 +9,27 @@ from google.protobuf import wrappers_pb2 as wrappers
 
 RPC_TIMEOUT = 30
 
+# pylint: disable=C0103,W0603,E1101
 _channel = None
 
 
-def connect():
+def connect_cv(settings):
     """Connect shared gRPC channel to the configured CloudVision instance."""
     global _channel
 
-    cvp_host = PLUGIN_SETTINGS["cvp_host"]
+    cvp_host = settings.get("cvp_host")
     # If CVP_HOST is defined, we assume an on-prem installation.
     if cvp_host:
         cvp_url = f"{cvp_host}:8443"
-        insecure = PLUGIN_SETTINGS["insecure"]
-        username = PLUGIN_SETTINGS["cvp_user"]
-        password = PLUGIN_SETTINGS["cvp_password"]
+        insecure = settings.get("insecure")
+        username = settings.get("cvp_user")
+        password = settings.get("cvp_password")
         # If insecure, the cert will be downloaded from the server and automatically trusted for gRPC.
         if insecure:
             cert = bytes(ssl.get_server_certificate((cvp_host, 8443)), "utf-8")
             channel_creds = grpc.ssl_channel_credentials(cert)
             response = requests.post(
-                f"https://{cvp_host}/cvpservice/login/authenticate.do", auth=(username, password), verify=False
+                f"https://{cvp_host}/cvpservice/login/authenticate.do", auth=(username, password), verify=False  # nosec
             )
         # Otherwise, the server is expected to have a valid certificate signed by a well-known CA.
         else:
@@ -38,13 +39,13 @@ def connect():
     # Set up credentials for CVaaS using supplied token.
     else:
         cvp_url = "www.arista.io:443"
-        call_creds = grpc.access_token_call_credentials(PLUGIN_SETTINGS["cvp_token"])
+        call_creds = grpc.access_token_call_credentials(settings.get("cvaas_token"))
         channel_creds = grpc.ssl_channel_credentials()
     conn_creds = grpc.composite_channel_credentials(channel_creds, call_creds)
     _channel = grpc.secure_channel(cvp_url, conn_creds)
 
 
-def disconnect():
+def disconnect_cv():
     """Close the shared gRPC channel."""
     global _channel
     _channel.close()
