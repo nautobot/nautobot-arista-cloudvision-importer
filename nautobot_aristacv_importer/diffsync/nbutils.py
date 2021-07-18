@@ -55,5 +55,5 @@ def assign_tag(device, tag_slug):
 def remove_tag(device, tag_slug):
     """Remove tag from device."""
     tag_object = _nautobot.extras.tags.get(slug=tag_slug)
-    device.tags.pop(tag_object)
+    device.tags.remove(tag_object)
     device.save()
