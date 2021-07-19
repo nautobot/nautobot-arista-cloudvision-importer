@@ -30,7 +30,7 @@ flake8 = "*"
 nautobot_aristacv_importer = 'nautobot_aristacv_importer.cli:main'
 
 [tool.nautobot_aristacv_importer]
-cvaas_token = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjE3NTE0LCJkc24iOiJEaWZmU3luYyIsImRzdCI6ImFjY291bnQiLCJzaWQiOiI0OTA1ZTUwZWYzYzg0NTI0YzljZGQ0ZWZjOTEwMTg0ZWMzMDEzYmVlZWU2MmRmNTUzN2YxM2JiZTc3YzYyOTEyLW80V21GMWlTdGFfYnlCbFNvR0RseGh2Y3hCMzRoaU9penI5Z0RUSzYifQ.vgAy2U0h1ORp_qx28GrOIME5kB0gveEk13vwlv67dZ3jh95IsCZ1meDkrdQbeGwFiiiPIO_Dnq1t_T9NEwRy3A"
+cvaas_token = ""
 nautobot_url = "http://localhost:8080"
 nautobot_token = "0123456789abcdef0123456789abcdef01234567"
 
