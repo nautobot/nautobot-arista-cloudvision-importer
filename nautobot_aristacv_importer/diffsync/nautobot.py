@@ -2,6 +2,7 @@
 from diffsync import DiffSync  # pylint: disable=E0402
 import nautobot_aristacv_importer.diffsync.nbutils as nbutils  # pylint: disable=R0402
 from .models import UserTag  # pylint: disable=E0402
+from pynautobot.core.query import RequestError
 
 
 class Nautobot(DiffSync):
@@ -23,7 +24,11 @@ class Nautobot(DiffSync):
                 label = cur_tag.name
                 value = ""
             self.tag = UserTag(name=label, value=value)
-            tagged_devices = nbutils.get_tagged_devices(f"arista_{label}_{value}")
+            try:
+                tagged_devices = nbutils.get_tagged_devices(f"arista_{label}_{value}")
+            except RequestError:
+                # Tag does not have any assigned devices so continue through loop
+                continue
             for dev in tagged_devices:
                 self.tag.devices.append(dev.name)
 

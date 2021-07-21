@@ -34,10 +34,12 @@ class UserTag(DiffSyncModel):
         tag_slug = f"arista_{self.name}_{self.value}"
         for device in remove:
             nb_device = nbutils.get_device(device)
-            nbutils.remove_tag(nb_device, tag_slug)
+            if nb_device is not None:
+                nbutils.remove_tag(nb_device, tag_slug)
         for device in add:
             nb_device = nbutils.get_device(device)
-            nbutils.assign_tag(nb_device, tag_slug)
+            if nb_device is not None:
+                nbutils.assign_tag(nb_device, tag_slug)
         return super().update(attrs)
 
     def delete(self):

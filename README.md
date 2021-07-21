@@ -1,6 +1,6 @@
 # nautobot-aristacv-importer
 
-This command line utility is used to onboard user tags from Cloudvision to Nautobot.
+This command line utility is used to onboard user tags from Cloudvision to Nautobot tags.
 
 ## Installation
 
@@ -32,7 +32,11 @@ The following must be set when connecting to Cloudvision as a service.
 
 - `cvaas_token` - The token for the service account that will be used to connect to CVAAS.
 
-To run the tool use the command `poetry run nautobot_aristacv_importer`. The terminal will display the the expected diff and ask you to verify whether you would like to proceed with the sync or not.
+To run the tool use the command `poetry run nautobot_aristacv_importer`. The terminal will display the the expected diff and ask you to verify whether you would like to proceed with the sync or not. Below is a short video showing an example.
+
+![arista_importer](https://user-images.githubusercontent.com/38091261/126537575-903de925-7951-47ca-b694-822c724e187d.gif)
+
+> This tool will attempt to assign the user tag to the device if it exists in Nautobot. Otherwise, it will just create the tag.
 
 ### CLI Helper Commands
 
@@ -53,8 +57,8 @@ The project is coming with a CLI helper based on [invoke](http://www.pyinvoke.or
 #### Docker Management
 ```no-highlight
   build            Build all docker images.
-  rebuild          Clean the docker image and then rebuild without using cache. 
-  clean            Remove the project specific image. 
+  rebuild          Clean the docker image and then rebuild without using cache.
+  clean            Remove the project specific image.
 ```
 
 ## Questions
