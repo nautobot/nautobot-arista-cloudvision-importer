@@ -34,7 +34,7 @@ The following must be set when connecting to Cloudvision as a service.
 
 To run the tool use the command `poetry run nautobot_aristacv_importer`. The terminal will display the the expected diff and ask you to verify whether you would like to proceed with the sync or not. Below is a short video showing an example.
 
-![arista_importer](https://user-images.githubusercontent.com/38091261/126537575-903de925-7951-47ca-b694-822c724e187d.gif)
+![arista_importer](https://user-images.githubusercontent.com/38091261/126538807-e0b2b451-2297-4b28-b5c0-781c7b6a9e9f.gif)
 
 > This tool will attempt to assign the user tag to the device if it exists in Nautobot. Otherwise, it will just create the tag.
 
