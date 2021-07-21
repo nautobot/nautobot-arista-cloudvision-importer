@@ -1,7 +1,7 @@
 """DiffSync adapter for Nautobot."""
 from diffsync import DiffSync  # pylint: disable=E0402
 from pynautobot.core.query import RequestError
-import nautobot_aristacv_importer.diffsync.nbutils as nbutils  # pylint: disable=R0402
+from .nbutils import get_tags, get_tagged_devices  # pylint: disable=R0402
 from .models import UserTag  # pylint: disable=E0402
 
 
@@ -16,7 +16,7 @@ class Nautobot(DiffSync):
 
     def load(self):
         """Load device tag data from Nautobot and populate DiffSync models."""
-        tags = nbutils.get_tags()
+        tags = get_tags()
         for cur_tag in tags:
             if ":" in cur_tag.name:
                 label, value = cur_tag.name.split(":")
@@ -25,7 +25,7 @@ class Nautobot(DiffSync):
                 value = ""
             self.tag = UserTag(name=label, value=value)
             try:
-                tagged_devices = nbutils.get_tagged_devices(f"arista_{label}_{value}")
+                tagged_devices = get_tagged_devices(f"arista_{label}_{value}")
             except RequestError:
                 # Tag does not have any assigned devices so continue through loop
                 continue
