@@ -1,8 +1,8 @@
 """DiffSync adapter for Nautobot."""
 from diffsync import DiffSync  # pylint: disable=E0402
+from pynautobot.core.query import RequestError
 import nautobot_aristacv_importer.diffsync.nbutils as nbutils  # pylint: disable=R0402
 from .models import UserTag  # pylint: disable=E0402
-from pynautobot.core.query import RequestError
 
 
 class Nautobot(DiffSync):
