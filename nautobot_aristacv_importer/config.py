@@ -2,12 +2,9 @@
 # pylint: disable=no-name-in-module
 import sys
 from pathlib import Path
-from typing import List, Optional
 
 import toml
 from pydantic import BaseSettings
-from pydantic.networks import AnyHttpUrl, IPvAnyAddress, IPvAnyNetwork
-from pydantic.types import DirectoryPath, FilePath, SecretStr
 from pydantic.error_wrappers import ValidationError
 
 SETTINGS = None
@@ -21,14 +18,9 @@ class Settings(BaseSettings):  # pylint: disable=too-few-public-methods
     and is validated when a config file is loaded with Pydantic.
     """
 
-    string_required: str
-    secret_optional: Optional[SecretStr]  # pylint: disable=unsubscriptable-object
-    array_default: List[str] = list()
-    url_default: AnyHttpUrl = "http://localhost"
-    ip_address: IPvAnyAddress = "192.168.0.1"
-    ip_network: IPvAnyNetwork = "2001:db8:3c4d:15::/64"
-    file: FilePath = "some/path/file.txt"
-    directory: DirectoryPath = "tests/"
+    cvaas_token: str
+    nautobot_url: str
+    nautobot_token: str
 
     class Config:  # pylint: disable=too-few-public-methods
         """Config class to be used for Settings."""
