@@ -8,16 +8,14 @@ If devices in Cloudvision already have tags assigned to them, this tool will ass
 
 ## Installation
 
-To use this tool, clone this repository to your local machine using
+To use this tool, clone this repository to your local machine using and change your working directory to the root of the project.
 
 ```shell
 git clone git@github.com:networktocode-llc/nautobot-arista-cloudvision-importer.git
 ```
-
-This command line tool is managed and ran from poetry. To install poetry follow the instructions [here](https://python-poetry.org/docs/).
+This command line tool is ran from poetry. To install poetry follow the instructions [here](https://python-poetry.org/docs/).
 
 ## Usage
-
 Before using this tool, you need to configure a few variables in the `pyproject.toml` file under the `[tool.nautobot_aristacv_importer]` section.
 
 For Nautobot, you need to configure the the following:
@@ -36,7 +34,7 @@ The following must be set when connecting to Cloudvision as a service.
 
 - `cvaas_token` - The token for the service account that will be used to connect to CVAAS.
 
-To run the tool use the command `poetry run nautobot_aristacv_importer`. The terminal will display the the expected diff and ask you to verify whether you would like to proceed with the sync or not. Below is a short video showing an example.
+Once configured you need to run `poetry install` to install dependencies for the tool. After that you can run the tool using the command `poetry run nautobot_aristacv_importer`. The terminal will display the the expected diff and ask you to verify whether you would like to proceed with the sync or not. Below is a short video showing an example.
 
 ![arista_importer](https://user-images.githubusercontent.com/38091261/126538807-e0b2b451-2297-4b28-b5c0-781c7b6a9e9f.gif)
 
