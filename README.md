@@ -11,7 +11,7 @@ If devices in Cloudvision already have tags assigned to them, this tool will ass
 To use this tool, clone this repository to your local machine using
 
 ```shell
-git clone https://github.com/networktocode-llc/nautobot-aristacv-importer
+git clone git@github.com:networktocode-llc/nautobot-arista-cloudvision-importer.git
 ```
 
 This command line tool is managed and ran from poetry. To install poetry follow the instructions [here](https://python-poetry.org/docs/).
