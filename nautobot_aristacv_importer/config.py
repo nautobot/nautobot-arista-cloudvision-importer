@@ -3,6 +3,7 @@
 import sys
 from pathlib import Path
 
+from typing import Optional
 import toml
 from pydantic import BaseSettings
 from pydantic.error_wrappers import ValidationError
@@ -18,7 +19,11 @@ class Settings(BaseSettings):  # pylint: disable=too-few-public-methods
     and is validated when a config file is loaded with Pydantic.
     """
 
-    cvaas_token: str
+    cvaas_token: Optional[str]
+    cvp_host: Optional[str]
+    cvp_user: Optional[str]
+    cvp_password: Optional[str]
+    insecure: Optional[str]
     nautobot_url: str
     nautobot_token: str
 
