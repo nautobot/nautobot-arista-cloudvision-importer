@@ -7,13 +7,15 @@ If devices in Cloudvision already have tags assigned to them, this tool will ass
 > This tool only syncs tags from Cloudvision to Nautobot.
 
 ## Installation
+This command line tool is ran from poetry. To install poetry follow the instructions [here](https://python-poetry.org/docs/).
 
-To use this tool, clone this repository to your local machine using and change your working directory to the root of the project.
+To use this tool, clone this repository to your local machine using
 
 ```shell
 git clone git@github.com:networktocode-llc/nautobot-arista-cloudvision-importer.git
 ```
-This command line tool is ran from poetry. To install poetry follow the instructions [here](https://python-poetry.org/docs/).
+
+Once the repo is cloned, you will need to change your working directory to the root of the project to run any commands in the section below.
 
 ## Usage
 Before using this tool, you need to configure a few variables in the `pyproject.toml` file under the `[tool.nautobot_aristacv_importer]` section.
