@@ -44,9 +44,5 @@ class UserTag(DiffSyncModel):
 
     def delete(self):
         """Delete user tag applied to devices in CloudVision."""
-        tag_slug = f"arista_{self.ids['name']}_{self.ids['value']}"
-        for device in self.attrs["devices"]:
-            nb_device = nbutils.get_device(device)
-            nbutils.assign_tag(nb_device, tag_slug)
-        super().delete()
+        print("No deletion of tags take place in thie CLI tool. Please use the SSoT Arista Cloudvision Plugin to sync tags.")
         return self
