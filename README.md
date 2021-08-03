@@ -1,4 +1,4 @@
-# nautobot-aristacv-importer
+# Arista Cloudvision Importer
 
 The tool acts as your initial sync of user tags from Cloudvision to tags in Nautobot. Once you run this tool once, you can use the "Sync To" feature in the SSoT plugin found [here](https://github.com/networktocode-llc/nautobot-plugin-ssot-arista-cloudvision) to keep Cloudvision up to date with any new tags created in Nautobot.
 
