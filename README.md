@@ -27,7 +27,7 @@ For Nautobot, you need to configure the the following:
 
 For Cloudvision, the variables you set depend on whether you are using an onprem instance of Cloudvision or Cloudvision as a service (CVAAS). For onprem, the following must be set:
 
-- `cvp_url` - The url to your Cloudvision instance.
+- `cvp_host` - The ip to your Cloudvision instance.
 - `cvp_username` - The username used to connect to Cloudvision.
 - `cvp_password` - The password used to connect to Cloudvision.
 - `insecure` - A boolean telling the tool whether or not to download and automatically trust the Cloudvision certificate. Defaults to False.
