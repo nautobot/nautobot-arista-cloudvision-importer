@@ -1,6 +1,10 @@
 # nautobot-aristacv-importer
 
-This command line utility is used to onboard user tags from Cloudvision to Nautobot tags.
+The tool acts as your initial sync of tags from Cloudvision to Nautobot. Once you run this tool once, you can use the "Sync To" feature in the SSoT plugin found [here](https://github.com/networktocode-llc/nautobot-plugin-ssot-arista-cloudvision) to keep Cloudvision up to date with any new tags created in Nautobot.
+
+If devices in Cloudvision already have tags assigned to them, this tool will assign the tags to the device in Nautobot as long as the device exists. If the deivce does not exist in Nautobot, only the tag is created.
+
+> This tool only syncs tags from Cloudvision to Nautobot.
 
 ## Installation
 
@@ -35,8 +39,6 @@ The following must be set when connecting to Cloudvision as a service.
 To run the tool use the command `poetry run nautobot_aristacv_importer`. The terminal will display the the expected diff and ask you to verify whether you would like to proceed with the sync or not. Below is a short video showing an example.
 
 ![arista_importer](https://user-images.githubusercontent.com/38091261/126538807-e0b2b451-2297-4b28-b5c0-781c7b6a9e9f.gif)
-
-> This tool will attempt to assign the user tag to the device if it exists in Nautobot. Otherwise, it will just create the tag.
 
 ### CLI Helper Commands
 
