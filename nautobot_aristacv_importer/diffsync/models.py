@@ -44,5 +44,7 @@ class UserTag(DiffSyncModel):
 
     def delete(self):
         """Delete user tag applied to devices in CloudVision."""
-        print("No deletion of tags take place in thie CLI tool. Please use the SSoT Arista Cloudvision Plugin to sync tags.")
+        print(
+            "No deletion of tags take place in thie CLI tool. Please use the SSoT Arista Cloudvision Plugin to sync tags."
+        )
         return self
