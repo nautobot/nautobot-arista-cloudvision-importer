@@ -8,11 +8,12 @@ stages:
     if: "tag IS present"
 
 language: "python"
-python:
-  - 3.6
-  - 3.7
-  - 3.8
-  - 3.9
+env:
+  matrix:
+    - "PYTHON_VER=3.6"
+    - "PYTHON_VER=3.7"
+    - "PYTHON_VER=3.8"
+    - "PYTHON_VER=3.9"
 
 services:
   - "docker"
