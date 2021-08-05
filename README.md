@@ -1,6 +1,6 @@
 # Arista Cloudvision Importer
 
-The tool acts as your initial sync of user tags from Cloudvision to tags in Nautobot. Once you run this tool once, you can use the "Sync To" feature in the SSoT plugin found [here](https://github.com/networktocode-llc/nautobot-plugin-ssot-arista-cloudvision) to keep Cloudvision up to date with any new tags created in Nautobot.
+This tool acts as your initial sync of user tags from Cloudvision to tags in Nautobot. Once you run this tool once, you can use the "Sync To" feature in the SSoT plugin found [here](https://github.com/nautobot/nautobot-plugin-ssot-arista-cloudvision) to keep Cloudvision up to date with any new tags created in Nautobot.
 
 If devices in Cloudvision already have tags assigned to them, this tool will assign the tags to the device in Nautobot as long as the device exists. If the deivce does not exist in Nautobot, only the tag is created.
 
@@ -15,7 +15,7 @@ To use this tool, clone this repository to your local machine using
 git clone git@github.com:networktocode-llc/nautobot-arista-cloudvision-importer.git
 ```
 
-Once the repo is cloned, you will need to change your working directory to the root of the project to run any commands in the section below.
+Once the repo is cloned, you will need to change your working directory to the root of the project to run the commands in the section below.
 
 ## Usage
 Before using this tool, you need to configure a few variables in the `pyproject.toml` file under the `[tool.nautobot_aristacv_importer]` section.
