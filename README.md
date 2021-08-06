@@ -1,10 +1,10 @@
 # Arista Cloudvision Importer
 
-This tool acts as your initial sync of user tags from Cloudvision to tags in Nautobot. Once you run this tool once, you can use the "Sync To" feature in the SSoT plugin found [here](https://github.com/nautobot/nautobot-plugin-ssot-arista-cloudvision) to keep Cloudvision up to date with any new tags created in Nautobot.
+This tool acts as your initial sync of user tags from Cloudvision to tags in Nautobot. After running this tool once, you can use the "Sync To" feature in the SSoT plugin found [here](https://github.com/nautobot/nautobot-plugin-ssot-arista-cloudvision) to keep Cloudvision up to date with any new tags created in Nautobot.
 
 If devices in Cloudvision already have tags assigned to them, this tool will assign the tags to the device in Nautobot as long as the device exists. If the deivce does not exist in Nautobot, only the tag is created.
 
-> This tool only syncs tags from Cloudvision to Nautobot.
+> This tool only syncs tags from Cloudvision to Nautobot and will NOT delete tags from Nautobot even if the tag is deleted in Cloudvision.
 
 ## Installation
 This command line tool is ran from poetry. To install poetry follow the instructions [here](https://python-poetry.org/docs/).
