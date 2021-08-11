@@ -14,7 +14,7 @@ This command line tool is ran from poetry. To install poetry follow the instruct
 To use this tool, clone this repository to your local machine using
 
 ```shell
-pip install nautobot-aristacv-importer
+git clone git@github.com:nautobot/nautobot-arista-cloudvision-importer.git
 ```
 
 Once the repo is cloned, you will need to change your working directory to the root of the project to run the commands in the section below.
