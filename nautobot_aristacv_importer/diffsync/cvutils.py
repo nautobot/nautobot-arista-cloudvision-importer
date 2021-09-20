@@ -47,7 +47,7 @@ def connect_cv(settings):
 
 def disconnect_cv():
     """Close the shared gRPC channel."""
-    global _channel # pylint: disable=global-variable-not-assigned
+    global _channel  # pylint: disable=global-variable-not-assigned
     _channel.close()
 
 
