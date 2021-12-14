@@ -67,6 +67,8 @@ no-docstring-rgx="^(_|test_|Meta$)"
 disable = """,
     line-too-long,
     bad-continuation,
+    use-list-literal,
+    unspecified-encoding,
     """
 
 [tool.pylint.miscellaneous]
